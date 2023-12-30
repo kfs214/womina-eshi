@@ -1,8 +1,13 @@
+import Box from '@mui/material/Box'
+
+import { aboutApp } from '@/const'
+import { AppBar } from '@/features/AppBar'
+import { AppProvider } from '@/providers/app'
+
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'WOmina-eshi',
-  description: 'Dynamic Funchan Generator',
+  ...aboutApp,
 }
 
 export default function RootLayout({
@@ -12,7 +17,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <AppProvider>
+          <AppBar />
+          <Box
+            component="main"
+            sx={{
+              mt: ['48px', '56px', '64px'],
+              p: 3,
+            }}
+          >
+            {children}
+          </Box>
+        </AppProvider>
+      </body>
     </html>
   )
 }
