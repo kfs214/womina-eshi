@@ -1,3 +1,22 @@
+'use client'
+
+import { useState } from 'react'
+
+import Box from '@mui/material/Box'
+
+import { Input } from '@/features/Home'
+
 export default function Home() {
-  return <p>this is page</p>
+  const [content, setContent] = useState('')
+  const handleChangeContent = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setContent(e.target.value)
+  }
+
+  return (
+    <Box sx={{ maxWidth: 480 }}>
+      <Input value={content} onChange={handleChangeContent} />
+    </Box>
+  )
 }

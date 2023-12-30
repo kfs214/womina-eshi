@@ -7,7 +7,7 @@ import { aboutApp } from '@/const'
 
 export function AppBar() {
   return (
-    <MUIAppBar position="fixed" sx={{ zIndex: 2000 }}>
+    <MUIAppBar color="secondary" position="fixed" sx={{ zIndex: 2000 }}>
       <Toolbar>
         <Image src="/images/funchan.svg" width={32} height={32} alt="logo" />
         <Typography
