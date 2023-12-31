@@ -1,7 +1,7 @@
 # WOmina-eshi(#F2F2B0): Dynamic Funchan Generator
 
 Funchan, renowned as LINE stickers, finds its home in the realm of expressive communication.  
-WOmina-eshi is a user-friendly web application designed to facilitate the effortless creation of customized Funchan SVG (Scalable Vector Graphics) files. With an intuitive interface , this app allows users to generate personalized Funchan SVGs by combining a pre-defined SVG template with their own text input.
+WOmina-eshi is a user-friendly web application designed to facilitate the effortless creation of customized Funchan Image. With an intuitive interface, this app allows users to generate personalized Funchan Image by combining a pre-defined SVG template with their own text input.
 
 See more on GitHub: [kfs214/funchan](https://github.com/kfs214/funchan#funchansvg)
 Find on LINE Store: [Funchan3](https://store.line.me/stickershop/product/22067285)
