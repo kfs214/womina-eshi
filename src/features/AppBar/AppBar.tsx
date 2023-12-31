@@ -1,15 +1,15 @@
 import MUIAppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import Image from 'next/image'
 
+import Funchan from '@/assets/funchan.svg'
 import { aboutApp } from '@/const'
 
 export function AppBar() {
   return (
     <MUIAppBar color="secondary" position="fixed" sx={{ zIndex: 2000 }}>
       <Toolbar>
-        <Image src="/images/funchan.svg" width={32} height={32} alt="logo" />
+        <Funchan width={32} height={32} />
         <Typography
           variant="h6"
           noWrap
