@@ -34,8 +34,8 @@ export default function Home() {
       />
       <DynamicFunchan
         content={content}
-        // primaryColor={primaryColor}
-        // secondaryColor={secondaryColor}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
       />
     </Box>
   )
