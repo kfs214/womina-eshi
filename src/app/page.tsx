@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import Box from '@mui/material/Box'
 
-import { Input } from '@/features/Home'
+import { DynamicFunchan, Input } from '@/features/Home'
 
 export default function Home() {
   const [content, setContent] = useState('')
@@ -15,8 +15,9 @@ export default function Home() {
   }
 
   return (
-    <Box sx={{ maxWidth: 480 }}>
+    <Box display="grid" gap={2} sx={{ maxWidth: 480 }}>
       <Input value={content} onChange={handleChangeContent} />
+      <DynamicFunchan content={content} />
     </Box>
   )
 }
