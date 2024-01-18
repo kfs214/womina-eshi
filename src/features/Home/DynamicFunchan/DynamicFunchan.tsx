@@ -52,8 +52,7 @@ export function DynamicFunchan({
           width="100%"
           variant="h2"
           component="div"
-          // TODO フォントの色が適用されていないので確認
-          color={primaryColor}
+          color={`#${secondaryColor}`}
           ref={textRef}
           sx={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
         >
