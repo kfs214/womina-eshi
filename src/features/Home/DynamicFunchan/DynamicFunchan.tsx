@@ -12,8 +12,6 @@ type Props = {
   secondaryColor: string
 }
 
-// TODO recommended.jsonいれる
-// TODO 複数行に対応させる
 // TODO フォントを可変、または決め打ちで指定
 
 const StyledFunchanTemplate = styled(FunchanTemplate)<{
@@ -55,6 +53,7 @@ export function DynamicFunchan({
           color={`#${secondaryColor}`}
           ref={textRef}
           sx={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+          whiteSpace="pre-wrap"
         >
           {content}
         </Typography>
