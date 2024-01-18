@@ -4,11 +4,17 @@ import { styled } from '@mui/material/styles'
 
 import FunchanTemplate from '@/assets/funchan-template.svg'
 
+import { useFitTextRef } from './useFitTextRef'
+
 type Props = {
   content: string
   primaryColor: string
   secondaryColor: string
 }
+
+// TODO recommended.jsonいれる
+// TODO 複数行に対応させる
+// TODO フォントを可変、または決め打ちで指定
 
 const StyledFunchanTemplate = styled(FunchanTemplate)<{
   fill: string
@@ -22,6 +28,8 @@ export function DynamicFunchan({
   primaryColor,
   secondaryColor,
 }: Props) {
+  const textRef = useFitTextRef<HTMLDivElement>(content)
+
   return (
     <Box position="relative" width="100%" maxWidth="370px" height="320px">
       <Box position="absolute" width="100%" height="100%">
@@ -32,19 +40,26 @@ export function DynamicFunchan({
           stroke={secondaryColor || 'ffffff'}
         />
       </Box>
-      <Typography
+      <Box
         width="100%"
         height="100%"
         position="relative"
-        variant="h2"
-        component="div"
-        color={primaryColor}
-        px={13}
-        py={7}
-        sx={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+        pr="104px"
+        pl="110px"
+        py={5}
       >
-        {content}
-      </Typography>
+        <Typography
+          width="100%"
+          variant="h2"
+          component="div"
+          // TODO フォントの色が適用されていないので確認
+          color={primaryColor}
+          ref={textRef}
+          sx={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+        >
+          {content}
+        </Typography>
+      </Box>
     </Box>
   )
 }
