@@ -1,13 +1,9 @@
 'use client'
 
 import { createTheme } from '@mui/material/styles'
-import { Roboto } from 'next/font/google'
+import { Potta_One } from 'next/font/google'
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-})
+const pottaOne = Potta_One({ weight: '400', subsets: ['latin'] })
 
 const theme = createTheme({
   palette: {
@@ -20,8 +16,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    // TODO フォント指定
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: pottaOne.style.fontFamily,
   },
 })
 

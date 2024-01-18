@@ -12,8 +12,6 @@ type Props = {
   secondaryColor: string
 }
 
-// TODO フォントを可変、または決め打ちで指定
-
 const StyledFunchanTemplate = styled(FunchanTemplate)<{
   fill: string
   stroke: string
