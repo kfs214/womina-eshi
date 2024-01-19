@@ -1,10 +1,13 @@
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Card from '@mui/material/Card'
 import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
 
 import FunchanTemplate from '@/assets/funchan-template.svg'
 
 import { useFitTextRef } from './useFitTextRef'
+import { usePreview } from './usePreview'
 
 type Props = {
   content: string
@@ -25,36 +28,65 @@ export function DynamicFunchan({
   secondaryColor,
 }: Props) {
   const textRef = useFitTextRef<HTMLDivElement>(content)
+  const { previewRef, base64url, handleShare } =
+    usePreview<HTMLDivElement>(content)
 
   return (
-    <Box position="relative" width="100%" maxWidth="370px" height="320px">
-      <Box position="absolute" width="100%" height="100%">
-        <StyledFunchanTemplate
-          width="100%"
-          height="100%"
-          fill={primaryColor || '094f6a'}
-          stroke={secondaryColor || 'ffffff'}
-        />
+    <Box display="grid" gap={2}>
+      <Box>
+        <Button onClick={handleShare} variant="outlined">
+          Share
+        </Button>
       </Box>
-      <Box
-        width="100%"
-        height="100%"
-        position="relative"
-        pr="104px"
-        pl="110px"
-        py={5}
-      >
-        <Typography
-          width="100%"
-          variant="h2"
-          component="div"
-          color={`#${secondaryColor}`}
-          ref={textRef}
-          sx={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-          whiteSpace="pre-wrap"
-        >
-          {content}
-        </Typography>
+
+      <Box position="relative" width="320px" height="320px">
+        <Card ref={previewRef} sx={{ height: '100%' }}>
+          <Box position="absolute" width="100%" height="100%">
+            <StyledFunchanTemplate
+              width="100%"
+              height="100%"
+              fill={primaryColor || '094f6a'}
+              stroke={secondaryColor || 'ffffff'}
+            />
+          </Box>
+          {/* TODO 余白の調整 */}
+          <Box
+            width="100%"
+            height="100%"
+            position="relative"
+            pr="104px"
+            pl="110px"
+            py={5}
+          >
+            <Typography
+              width="100%"
+              variant="h2"
+              component="div"
+              color={`#${secondaryColor}`}
+              ref={textRef}
+              sx={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+              whiteSpace="pre-wrap"
+            >
+              {content}
+            </Typography>
+          </Box>
+        </Card>
+
+        {base64url && (
+          <Box
+            position="absolute"
+            top={0}
+            sx={{ width: '100%', height: '100%' }}
+          >
+            {/* TODO ファイル名指定 */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              style={{ display: 'block', width: '100%', height: '100%' }}
+              src={base64url}
+              alt="preview"
+            />
+          </Box>
+        )}
       </Box>
     </Box>
   )

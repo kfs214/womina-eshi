@@ -20,6 +20,9 @@ dependencies:
   '@mui/material-nextjs':
     specifier: 5.15.0
     version: 5.15.0(@emotion/cache@11.11.0)(@mui/material@5.15.2)(@types/react@18.2.46)(next@14.0.4)(react@18.2.0)
+  html-to-image:
+    specifier: 1.11.11
+    version: 1.11.11
   next:
     specifier: 14.0.4
     version: 14.0.4(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
@@ -3578,6 +3581,10 @@ packages:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
       react-is: 16.13.1
+    dev: false
+
+  /html-to-image@1.11.11:
+    resolution: {integrity: sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA==}
     dev: false
 
   /human-signals@5.0.0:
