@@ -27,7 +27,11 @@ function saveImage(dataUrl: string, options: ImageOptions) {
   link.click()
 }
 
-export function usePreview<T extends HTMLElement>(content: string) {
+export function usePreview<T extends HTMLElement>(
+  content: string,
+  primaryColor: string,
+  secondaryColor: string,
+) {
   const previewRef = useRef<T>(null)
   const [base64url, setBase64url] = useState('')
 
@@ -47,6 +51,7 @@ export function usePreview<T extends HTMLElement>(content: string) {
     }
 
     // TODO canShare 返して、シェア可能な場合でもダウンロード有効にする
+    // TODO 背景透過したい
     base64toFile(base64url, imageOptions)
       .then((file) => {
         if (
@@ -95,7 +100,7 @@ export function usePreview<T extends HTMLElement>(content: string) {
       // eslint-disable-next-line no-console
       console.log(error)
     })
-  }, [content])
+  }, [content, primaryColor, secondaryColor])
 
   return { previewRef, base64url, handleShare }
 }

@@ -28,8 +28,11 @@ export function DynamicFunchan({
   secondaryColor,
 }: Props) {
   const textRef = useFitTextRef<HTMLDivElement>(content)
-  const { previewRef, base64url, handleShare } =
-    usePreview<HTMLDivElement>(content)
+  const { previewRef, base64url, handleShare } = usePreview<HTMLDivElement>(
+    content,
+    primaryColor,
+    secondaryColor,
+  )
 
   return (
     <Box display="grid" gap={2}>
