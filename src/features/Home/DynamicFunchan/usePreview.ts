@@ -47,7 +47,6 @@ export function usePreview<T extends HTMLElement>(content: string) {
     }
 
     // TODO canShare 返して、シェア可能な場合でもダウンロード有効にする
-    // TODO Safariのプレビュー最新じゃない問題
     base64toFile(base64url, imageOptions)
       .then((file) => {
         if (
@@ -74,17 +73,28 @@ export function usePreview<T extends HTMLElement>(content: string) {
       })
   }, [base64url, content])
 
+  // The image rendering issue in Safari was addressed by implementing a workaround found at:
+  // https://github.com/bubkoo/html-to-image/issues/361#issuecomment-1402537176
   useEffect(() => {
-    if (!previewRef.current) return
+    ;(async () => {
+      if (!previewRef.current) return
 
-    toPng(previewRef.current, { cacheBust: true })
-      .then((dataUrl) => {
-        setBase64url(dataUrl)
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.log(error)
-      })
+      // Invoking `toPng` multiple times for potential stability in Safari rendering
+      await toPng(previewRef.current, { cacheBust: true })
+      await toPng(previewRef.current, { cacheBust: true })
+
+      toPng(previewRef.current, { cacheBust: true })
+        .then((dataUrl) => {
+          setBase64url(dataUrl)
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.log(error)
+        })
+    })().catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error)
+    })
   }, [content])
 
   return { previewRef, base64url, handleShare }
