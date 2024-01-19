@@ -49,23 +49,24 @@ export function DynamicFunchan({
               stroke={secondaryColor || 'ffffff'}
             />
           </Box>
-          {/* TODO 余白の調整 */}
           <Box
             width="100%"
             height="100%"
             position="relative"
-            pr="104px"
-            pl="110px"
-            py={5}
+            pr={10}
+            pl={12}
+            pt={4}
+            pb={3}
           >
             <Typography
               width="100%"
+              height="100%"
               variant="h2"
               component="div"
               color={`#${secondaryColor}`}
               ref={textRef}
               sx={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-              whiteSpace="pre-wrap"
+              whiteSpace="pre"
             >
               {content}
             </Typography>

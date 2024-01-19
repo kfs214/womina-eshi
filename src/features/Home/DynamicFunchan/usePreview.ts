@@ -47,6 +47,7 @@ export function usePreview<T extends HTMLElement>(content: string) {
     }
 
     // TODO canShare 返して、シェア可能な場合でもダウンロード有効にする
+    // TODO Safariのプレビュー最新じゃない問題
     base64toFile(base64url, imageOptions)
       .then((file) => {
         if (

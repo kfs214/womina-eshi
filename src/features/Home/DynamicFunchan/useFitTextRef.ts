@@ -21,7 +21,10 @@ export function useFitTextRef<T extends HTMLElement>(
 
     textRef.current.removeAttribute('style')
 
-    while (textRef.current.scrollWidth > textRef.current.clientWidth) {
+    while (
+      textRef.current.scrollWidth > textRef.current.clientWidth ||
+      textRef.current.scrollHeight > textRef.current.clientHeight
+    ) {
       fontPx -= 1
 
       if (fontPx < minFontPx) {
