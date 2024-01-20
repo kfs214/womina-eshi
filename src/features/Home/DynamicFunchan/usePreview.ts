@@ -53,7 +53,6 @@ export function usePreview<T extends HTMLElement>(
     }
 
     // TODO canShare 返して、シェア可能な場合でもダウンロード有効にする
-    // TODO 背景透過したい
     base64toFile(base64url, imageOptions)
       .then((file) => {
         if (
