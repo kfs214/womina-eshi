@@ -37,9 +37,9 @@ export function usePreview<T extends HTMLElement>(
 
   const handleShare = useCallback(() => {
     const title = content
+      .replace(/[^a-zA-Z0-9\s]/g, '')
       .trim()
       .replace(/\s+/g, '-')
-      .replace(/[^a-zA-Z0-9-]/g, '')
       .replace(/[A-Z]/g, (letter) => letter.toLowerCase())
 
     const imageOptions = {
