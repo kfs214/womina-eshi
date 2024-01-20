@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "formulahendry.auto-rename-tag",
+    "streetsidesoftware.code-spell-checker",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "vector-of-bool.gitflow",
+    "oderwat.indent-rainbow",
+    "visualstudioexptteam.vscodeintellicode",
+    "yzhang.markdown-all-in-one",
+    "esbenp.prettier-vscode",
+    "gruntfuggly.todo-tree"
+  ]
+}

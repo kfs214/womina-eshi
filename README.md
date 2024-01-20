@@ -12,10 +12,11 @@ This application is built with [Next.js](https://nextjs.org/) and was bootstrapp
 
 ## Installation
 
-To get started, clone the repository and install the necessary dependencies using npm:
+To get started, clone the repository and install the necessary dependencies using pnpm:
 
 ```bash
-npm install
+npm install -g pnpm
+pnpm install
 ```
 
 ## Usage
@@ -23,7 +24,7 @@ npm install
 Once the dependencies are installed, run the development server:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Access the application at [http://localhost:3000](http://localhost:3000) in your preferred browser.
