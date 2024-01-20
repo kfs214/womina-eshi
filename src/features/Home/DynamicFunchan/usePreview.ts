@@ -90,7 +90,11 @@ export function usePreview<T extends HTMLElement>(
       await toPng(previewRef.current, { cacheBust: true })
       await toPng(previewRef.current, { cacheBust: true })
 
-      toPng(previewRef.current, { cacheBust: true })
+      // TODO 比率を自由に指定
+      toPng(previewRef.current, {
+        cacheBust: true,
+        pixelRatio: 1,
+      })
         .then((dataUrl) => {
           setBase64url(dataUrl)
         })
