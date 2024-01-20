@@ -45,14 +45,16 @@ export function DynamicFunchan({
       <Box>
         <Box width="fit-content">
           <Card>
-            <Box position="relative" width="415px" height="320px">
+            {/* <Box position="relative" width="415px" height="320px"> */}
+            <Box position="relative" width="320px" height="320px">
               <Box
                 ref={previewRef}
                 height="100%"
                 display="flex"
                 justifyContent="center"
               >
-                <Box width="320px" height="100%">
+                {/* <Box width="320px" height="100%"> */}
+                <Box height="100%" width="100%">
                   <Box position="absolute" height="100%">
                     <StyledFunchanTemplate
                       height="100%"

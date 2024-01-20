@@ -93,8 +93,10 @@ export function usePreview<T extends HTMLElement>(
       // TODO 縦横比率を選択可能に
       toPng(previewRef.current, {
         cacheBust: true,
-        canvasHeight: 74,
-        canvasWidth: 96,
+        // canvasHeight: 74,
+        // canvasWidth: 96,
+        // canvasHeight: 240,
+        // canvasWidth: 240,
         pixelRatio: 1,
       })
         .then((dataUrl) => {
