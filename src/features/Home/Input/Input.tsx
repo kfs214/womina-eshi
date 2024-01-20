@@ -34,6 +34,7 @@ export function Input({
         variant="outlined"
         fullWidth
         required
+        multiline
         {...contentProps}
       />
       <Box display="grid" gridTemplateColumns="1fr 1fr" gap={1}>

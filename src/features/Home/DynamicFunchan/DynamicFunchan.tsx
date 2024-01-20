@@ -1,8 +1,13 @@
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Card from '@mui/material/Card'
 import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
 
 import FunchanTemplate from '@/assets/funchan-template.svg'
+
+import { useFitTextRef } from './useFitTextRef'
+import { usePreview } from './usePreview'
 
 type Props = {
   content: string
@@ -22,29 +27,83 @@ export function DynamicFunchan({
   primaryColor,
   secondaryColor,
 }: Props) {
+  const textRef = useFitTextRef<HTMLDivElement>(content)
+  const { previewRef, base64url, handleShare } = usePreview<HTMLDivElement>(
+    content,
+    primaryColor,
+    secondaryColor,
+  )
+
   return (
-    <Box position="relative" width="100%" maxWidth="370px" height="320px">
-      <Box position="absolute" width="100%" height="100%">
-        <StyledFunchanTemplate
-          width="100%"
-          height="100%"
-          fill={primaryColor || '094f6a'}
-          stroke={secondaryColor || 'ffffff'}
-        />
+    <Box display="grid" gap={2}>
+      <Box>
+        <Button onClick={handleShare} variant="outlined">
+          Share
+        </Button>
       </Box>
-      <Typography
-        width="100%"
-        height="100%"
-        position="relative"
-        variant="h2"
-        component="div"
-        color={primaryColor}
-        px={13}
-        py={7}
-        sx={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-      >
-        {content}
-      </Typography>
+
+      <Box>
+        <Box width="fit-content">
+          <Card>
+            {/* <Box position="relative" width="415px" height="320px"> */}
+            <Box position="relative" width="320px" height="320px">
+              <Box
+                ref={previewRef}
+                height="100%"
+                display="flex"
+                justifyContent="center"
+              >
+                {/* <Box width="320px" height="100%"> */}
+                <Box height="100%" width="100%">
+                  <Box position="absolute" height="100%">
+                    <StyledFunchanTemplate
+                      height="100%"
+                      fill={primaryColor || '094f6a'}
+                      stroke={secondaryColor || 'ffffff'}
+                    />
+                  </Box>
+                  <Box
+                    height="100%"
+                    position="relative"
+                    pr={10}
+                    pl={12}
+                    pt={4}
+                    pb={3}
+                  >
+                    <Typography
+                      width="100%"
+                      height="100%"
+                      variant="h2"
+                      component="div"
+                      color={`#${secondaryColor}`}
+                      ref={textRef}
+                      sx={{
+                        writingMode: 'vertical-rl',
+                        textOrientation: 'mixed',
+                      }}
+                      whiteSpace="pre"
+                    >
+                      {content}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+
+              {base64url && (
+                <Box position="absolute" top={0} height="100%">
+                  {/* TODO ファイル名指定 */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    style={{ display: 'block', width: '100%', height: '100%' }}
+                    src={base64url}
+                    alt="preview"
+                  />
+                </Box>
+              )}
+            </Box>
+          </Card>
+        </Box>
+      </Box>
     </Box>
   )
 }
