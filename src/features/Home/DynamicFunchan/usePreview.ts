@@ -36,6 +36,8 @@ export function usePreview<T extends HTMLElement>(
   const [base64url, setBase64url] = useState('')
 
   const handleShare = useCallback(() => {
+    if (!content) return
+
     const title = content
       .replace(/[^a-zA-Z0-9\s]/g, '')
       .trim()

@@ -42,55 +42,58 @@ export function DynamicFunchan({
         </Button>
       </Box>
 
-      <Box position="relative" width="320px" height="320px">
-        <Card ref={previewRef} sx={{ height: '100%' }}>
-          <Box position="absolute" width="100%" height="100%">
-            <StyledFunchanTemplate
-              width="100%"
-              height="100%"
-              fill={primaryColor || '094f6a'}
-              stroke={secondaryColor || 'ffffff'}
-            />
-          </Box>
-          <Box
-            width="100%"
-            height="100%"
-            position="relative"
-            pr={10}
-            pl={12}
-            pt={4}
-            pb={3}
-          >
-            <Typography
-              width="100%"
-              height="100%"
-              variant="h2"
-              component="div"
-              color={`#${secondaryColor}`}
-              ref={textRef}
-              sx={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-              whiteSpace="pre"
-            >
-              {content}
-            </Typography>
-          </Box>
-        </Card>
+      <Box>
+        <Box width="fit-content">
+          <Card>
+            <Box position="relative" width="320px" height="320px">
+              <Box ref={previewRef} sx={{ height: '100%' }}>
+                <Box position="absolute" height="100%">
+                  <StyledFunchanTemplate
+                    height="100%"
+                    fill={primaryColor || '094f6a'}
+                    stroke={secondaryColor || 'ffffff'}
+                  />
+                </Box>
+                <Box
+                  height="100%"
+                  position="relative"
+                  pr={10}
+                  pl={12}
+                  pt={4}
+                  pb={3}
+                >
+                  <Typography
+                    width="100%"
+                    height="100%"
+                    variant="h2"
+                    component="div"
+                    color={`#${secondaryColor}`}
+                    ref={textRef}
+                    sx={{
+                      writingMode: 'vertical-rl',
+                      textOrientation: 'mixed',
+                    }}
+                    whiteSpace="pre"
+                  >
+                    {content}
+                  </Typography>
+                </Box>
+              </Box>
 
-        {base64url && (
-          <Box
-            position="absolute"
-            top={0}
-            sx={{ width: '100%', height: '100%' }}
-          >
-            {/* TODO ファイル名指定 */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              style={{ display: 'block', width: '100%', height: '100%' }}
-              src={base64url}
-              alt="preview"
-            />
-          </Box>
-        )}
+              {base64url && (
+                <Box position="absolute" top={0} height="100%">
+                  {/* TODO ファイル名指定 */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    style={{ display: 'block', width: '100%', height: '100%' }}
+                    src={base64url}
+                    alt="preview"
+                  />
+                </Box>
+              )}
+            </Box>
+          </Card>
+        </Box>
       </Box>
     </Box>
   )
